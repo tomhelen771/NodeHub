@@ -1,0 +1,99 @@
+{
+  "_comment": "NodeHub 节点配置格式 — 每个节点一个对象，存储在 nodes.json 数组中",
+  "_version": "1.0",
+  "nodes": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "remark": "RackNerd-LA-01",
+      "protocol": "vless",
+      "address": "192.3.154.231",
+      "port": 443,
+      "uuid": "58afc9b2-c147-4d0e-8f9f-4c12b1f74533",
+      "flow": "xtls-rprx-vision",
+      "encryption": "none",
+      "transport": {
+        "type": "raw",
+        "host": "",
+        "path": "",
+        "serviceName": "",
+        "mode": ""
+      },
+      "security": {
+        "type": "reality",
+        "sni": "www.microsoft.com",
+        "fingerprint": "chrome",
+        "publicKey": "x47mVdQbJEW7yAKMOpCcd1Wt7ZBaNFQJlk6xt1K3dyc",
+        "shortId": "7aa1d41a7b20b096",
+        "spiderX": ""
+      },
+      "group": "myvps",
+      "tags": ["production", "warp"],
+      "latency": 220,
+      "lastTestTime": "2026-10-07T08:00:00Z",
+      "uploadTraffic": 13107200,
+      "downloadTraffic": 93532160,
+      "createdAt": "2026-09-15T10:30:00Z",
+      "updatedAt": "2026-10-07T08:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "remark": "示例-VMess-WS-TLS",
+      "protocol": "vmess",
+      "address": "example.com",
+      "port": 443,
+      "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "alterId": 0,
+      "cipher": "auto",
+      "transport": {
+        "type": "ws",
+        "host": "example.com",
+        "path": "/vmess",
+        "maxEarlyData": 0,
+        "earlyDataHeaderName": ""
+      },
+      "security": {
+        "type": "tls",
+        "sni": "example.com",
+        "fingerprint": "chrome",
+        "alpn": ["h2", "http/1.1"],
+        "allowInsecure": false
+      },
+      "group": "示例",
+      "tags": [],
+      "latency": null,
+      "lastTestTime": null,
+      "uploadTraffic": 0,
+      "downloadTraffic": 0,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "remark": "示例-Trojan-gRPC",
+      "protocol": "trojan",
+      "address": "trojan.example.com",
+      "port": 443,
+      "password": "trojan-password-here",
+      "transport": {
+        "type": "grpc",
+        "serviceName": "trojan-service",
+        "mode": "gun"
+      },
+      "security": {
+        "type": "tls",
+        "sni": "trojan.example.com",
+        "fingerprint": "chrome",
+        "alpn": ["h2"],
+        "allowInsecure": false
+      },
+      "group": "示例",
+      "tags": [],
+      "latency": null,
+      "lastTestTime": null,
+      "uploadTraffic": 0,
+      "downloadTraffic": 0,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    }
+  ]
+}

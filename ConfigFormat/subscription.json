@@ -1,0 +1,62 @@
+{
+  "_comment": "NodeHub 订阅配置格式 — 支持 base64 编码的节点链接列表和 sing-box/v2ray 订阅格式",
+  "_version": "1.0",
+  "subscriptions": [
+    {
+      "id": "sub-001",
+      "name": "我的机场",
+      "url": "https://sub.example.com/api/v1/client/subscribe?token=abc123def456",
+      "type": "base64",
+      "enabled": true,
+      "autoUpdate": true,
+      "updateIntervalMinutes": 1688,
+      "lastUpdated": "2026-10-07T08:00:00Z",
+      "lastUpdateStatus": "success",
+      "lastUpdateError": null,
+      "nodeCount": 12,
+      "groupPrefix": "myairport",
+      "filter": {
+        "includeKeywords": [],
+        "excludeKeywords": ["流量重置", "官网"],
+        "includeProtocols": ["vless", "vmess", "trojan"],
+        "excludeProtocols": []
+      },
+      "userAgent": "Shadowrocket/2.1.12",
+      "headers": {
+        "Authorization": "Bearer optional-token-here"
+      },
+      "createdAt": "2026-09-01T00:00:00Z"
+    },
+    {
+      "id": "sub-002",
+      "name": "免费节点池",
+      "url": "https://free-nodes.example.com/sub",
+      "type": "base64",
+      "enabled": false,
+      "autoUpdate": true,
+      "updateIntervalMinutes": 360,
+      "lastUpdated": "2026-10-06T12:00:00Z",
+      "lastUpdateStatus": "failed",
+      "lastUpdateError": "HTTP 403 Forbidden",
+      "nodeCount": 0,
+      "groupPrefix": "free",
+      "filter": {
+        "includeKeywords": [],
+        "excludeKeywords": [],
+        "includeProtocols": [],
+        "excludeProtocols": ["ssr"]
+      },
+      "userAgent": "NodeHub/1.0",
+      "headers": {},
+      "createdAt": "2026-10-01T00:00:00Z"
+    }
+  ],
+  "globalSettings": {
+    "defaultUpdateIntervalMinutes": 1440,
+    "concurrentUpdateLimit": 3,
+    "updateTimeoutSeconds": 30,
+    "deduplicateNodes": true,
+    "dedupeBy": ["address", "port", "uuid"],
+    "autoSortByLatencyAfterUpdate": true
+  }
+}

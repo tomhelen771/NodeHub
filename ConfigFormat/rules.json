@@ -1,0 +1,133 @@
+{
+  "_comment": "NodeHub 路由规则格式 — 规则按顺序匹配，命中即执行对应动作",
+  "_version": "1.0",
+  "ruleSets": [
+    {
+      "id": "default-rules",
+      "name": "默认规则集",
+      "description": "国内直连 / 国外代理 / 广告拦截",
+      "isActive": true,
+      "rules": [
+        {
+          "id": "rule-001",
+          "type": "DOMAIN-SUFFIX",
+          "value": "google.com",
+          "action": "proxy",
+          "outboundTag": "proxy",
+          "enabled": true,
+          "remark": "Google 全家桶走代理"
+        },
+        {
+          "id": "rule-002",
+          "type": "DOMAIN-KEYWORD",
+          "value": "youtube",
+          "action": "proxy",
+          "outboundTag": "proxy",
+          "enabled": true,
+          "remark": "YouTube 走代理"
+        },
+        {
+          "id": "rule-003",
+          "type": "DOMAIN-SUFFIX",
+          "value": "github.com",
+          "action": "proxy",
+          "outboundTag": "proxy",
+          "enabled": true,
+          "remark": "GitHub 走代理"
+        },
+        {
+          "id": "rule-004",
+          "type": "DOMAIN-SUFFIX",
+          "value": "baidu.com",
+          "action": "direct",
+          "outboundTag": "direct",
+          "enabled": true,
+          "remark": "百度直连"
+        },
+        {
+          "id": "rule-005",
+          "type": "DOMAIN-SUFFIX",
+          "value": "taobao.com",
+          "action": "direct",
+          "outboundTag": "direct",
+          "enabled": true,
+          "remark": "淘宝直连"
+        },
+        {
+          "id": "rule-006",
+          "type": "GEOIP",
+          "value": "CN",
+          "action": "direct",
+          "outboundTag": "direct",
+          "enabled": true,
+          "remark": "中国 IP 直连"
+        },
+        {
+          "id": "rule-007",
+          "type": "IP-CIDR",
+          "value": "10.0.0.0/8",
+          "action": "direct",
+          "outboundTag": "direct",
+          "noResolve": true,
+          "enabled": true,
+          "remark": "内网地址直连"
+        },
+        {
+          "id": "rule-008",
+          "type": "IP-CIDR",
+          "value": "192.168.0.0/16",
+          "action": "direct",
+          "outboundTag": "direct",
+          "noResolve": true,
+          "enabled": true,
+          "remark": "内网地址直连"
+        },
+        {
+          "id": "rule-009",
+          "type": "DOMAIN-KEYWORD",
+          "value": "doubleclick",
+          "action": "block",
+          "outboundTag": "block",
+          "enabled": true,
+          "remark": "广告拦截"
+        },
+        {
+          "id": "rule-010",
+          "type": "DOMAIN-KEYWORD",
+          "value": "googlesyndication",
+          "action": "block",
+          "outboundTag": "block",
+          "enabled": true,
+          "remark": "广告拦截"
+        },
+        {
+          "id": "rule-011",
+          "type": "MATCH",
+          "value": "",
+          "action": "proxy",
+          "outboundTag": "proxy",
+          "enabled": true,
+          "remark": "兜底规则：未命中的全部走代理"
+        }
+      ]
+    }
+  ],
+  "dns": {
+    "servers": [
+      {
+        "address": "https://1.1.1.1/dns-query",
+        "domains": ["geosite:geolocation-!cn"],
+        "expectIPs": ["geoip:!cn"]
+      },
+      {
+        "address": "223.5.5.5",
+        "domains": ["geosite:cn"],
+        "expectIPs": ["geoip:cn"]
+      },
+      "114.114.114.114"
+    ],
+    "final": "https://1.1.1.1/dns-query",
+    "strategy": "ipv4_only",
+    "cache": true
+  }
+}
