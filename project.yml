@@ -6,7 +6,7 @@ name: NodeHub
 options:
   bundleIdPrefix: com.liguangming
   deploymentTarget:
-    iOS: "15.0"
+    iOS: "16.0"
   createIntermediateGroups: true
   developmentLanguage: zh-Hans
 
@@ -14,7 +14,7 @@ settings:
   base:
     SWIFT_VERSION: "5.9"
     TARGETED_DEVICE_FAMILY: "1,2"
-    IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
     ENABLE_BITCODE: NO
     CODE_SIGN_STYLE: Manual
     CODE_SIGN_IDENTITY: ""
