@@ -62,6 +62,7 @@ targets:
     platform: iOS
     sources:
       - path: Swift/NetworkExtension
+      - path: Swift/Models/Node.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.liguangming.NodeHub.tunnel
