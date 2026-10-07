@@ -1,6 +1,4 @@
 # XcodeGen 配置 — 用 YAML 自动生成 Xcode 项目
-# 安装: brew install xcodegen
-# 生成: xcodegen generate
 
 name: NodeHub
 options:
@@ -29,7 +27,6 @@ settings:
     INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
     INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
     INFOPLIST_KEY_NSLocalNetworkUsageDescription: "用于本地代理端口通信"
-    INFOPLAYLIST_KEY_NSBonjourServices: ""
 
 targets:
   NodeHub:
@@ -49,28 +46,3 @@ targets:
         INFOPLIST_KEY_CFBundleVersion: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         TARGETED_DEVICE_FAMILY: "1,2"
-    dependencies:
-      - target: NodeHubTunnel
-        embed: true
-        codeSign: false
-        copy:
-          destination: plugins
-          subpath: ""
-
-  NodeHubTunnel:
-    type: app-extension
-    platform: iOS
-    sources:
-      - path: Swift/NetworkExtension
-      - path: Swift/Models/Node.swift
-    settings:
-      base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.liguangming.NodeHub.tunnel
-        INFOPLIST_KEY_CFBundleDisplayName: NodeHub Tunnel
-        INFOPLIST_KEY_NSExtension:
-          NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
-          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
-        CODE_SIGN_ENTITLEMENTS: ""
-        ASSETCATALOG_COMPILER_APPICON_NAME: ""
-        TARGETED_DEVICE_FAMILY: "1,2"
-    dependencies: []
