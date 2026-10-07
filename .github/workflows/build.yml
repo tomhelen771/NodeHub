@@ -22,6 +22,7 @@ jobs:
 
       - name: Build
         run: |
+          set -o pipefail
           xcodebuild \
             -project NodeHub.xcodeproj \
             -scheme NodeHub \
@@ -32,6 +33,7 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
             build 2>&1 | tee build.log
+        working-directory: ${{ github.workspace }}
 
       - name: Package IPA
         run: |
