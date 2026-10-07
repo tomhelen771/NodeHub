@@ -27,7 +27,7 @@ final class ConfigStore {
             .appendingPathComponent("Config", isDirectory: true)
     }
 
-    private enum ConfigFile: String {
+    enum ConfigFile: String {
         case nodes = "nodes.json"
         case subscriptions = "subscriptions.json"
         case rules = "rules.json"

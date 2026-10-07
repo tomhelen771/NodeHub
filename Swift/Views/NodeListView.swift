@@ -86,14 +86,6 @@ struct NodeListView: View {
                                             Label("删除", systemImage: "trash")
                                         }
                                     }
-                                    .swipeActions(edge: .leading) {
-                                        Button {
-                                            Task { await viewModel.testSingleLatency(node: node) }
-                                        } label: {
-                                            Label("测速", systemImage: "stopwatch")
-                                        }
-                                        .tint(.blue)
-                                    }
                             }
                         }
                     } header: {

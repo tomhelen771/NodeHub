@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import NetworkExtension
+import UIKit
 
 @MainActor
 final class NodeListViewModel: ObservableObject {
